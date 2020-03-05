@@ -40,7 +40,7 @@ build:initrd:
     - wget -qO- $LINARO_TOOLCHAIN_URL  | tar -xJ --strip-components=1 -C /tmp/toolchain
 
   script:
-    - bash build.sh /tmp/toolchain /tmp/u-boot libretech-cc
+    - bash build.sh /tmp/toolchain/bin /tmp/u-boot libretech-cc
 
   after_script:
     - cp build_libretech-cc/u-boot.bin results/u-boot_libretech-cc.bin
