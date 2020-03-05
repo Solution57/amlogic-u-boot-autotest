@@ -1,9 +1,6 @@
 variables:
   IMAGE_TAG: "2020-03-05-3"
-  UBOOT_URL: "https://gitlab.denx.de/u-boot/custodians/u-boot-amlogic"
-  UBOOT_BRANCH: "u-boot-amlogic-next"
   LINARO_TOOLCHAIN_URL: "https://releases.linaro.org/components/toolchain/binaries/7.5-2019.12/aarch64-linux-gnu/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu.tar.xz"
-  BOARDS: "odroid-c2 odroid-n2 p212  s400 p201 p200 u200 libretech-cc libretech-ac khadas-vim khadas-vim2 khadas-vim3 khadas-vim2l nanopi-k2 sei510 sei610"
 
 stages:
   - docker
@@ -28,7 +25,7 @@ build:docker:
     - docker push $CI_REGISTRY_IMAGE:$IMAGE_TAG
     - docker push $CI_REGISTRY_IMAGE:latest
 
-build:initrd:
+.build:
   tags: 
     - u-boot
   stage: build
@@ -50,3 +47,25 @@ build:initrd:
     when: always
     paths:
       - results/
+
+build:master:
+  extends: .build
+  variables:
+    BOARDS: "odroid-c2 odroid-n2 p212 s400 p201 p200 u200 libretech-cc libretech-ac khadas-vim khadas-vim2 khadas-vim3 khadas-vim2l nanopi-k2 sei510 sei610"
+    UBOOT_URL: "https://github.com/u-boot/u-boot"
+    UBOOT_BRANCH: "master"
+
+build:u-boot-amlogic:
+  extends: .build
+  variables:
+    BOARDS: "odroid-c2 odroid-n2 p212 s400 p201 p200 u200 libretech-cc libretech-ac khadas-vim khadas-vim2 khadas-vim3 khadas-vim2l nanopi-k2 sei510 sei610"
+    UBOOT_URL: "https://gitlab.denx.de/u-boot/custodians/u-boot-amlogic"
+    UBOOT_BRANCH: "u-boot-amlogic"
+
+build:u-boot-amlogic-next:
+  extends: .build
+  variables:
+    BOARDS: "libretech-cc libretech-ac sei510 sei610"
+    UBOOT_URL: "https://gitlab.denx.de/u-boot/custodians/u-boot-amlogic"
+    UBOOT_BRANCH: "u-boot-amlogic-next"
+
