@@ -9,8 +9,8 @@ fi
 
 (
     cd $2
-    make -q O=build_$3 ${3}_defconfig
-    make -q O=build_$3 CROSS_COMPILE=$1/aarch64-linux-gnu-
+    make O=build_$3 ${3}_defconfig > /dev/null
+    make O=build_$3 CROSS_COMPILE=$1/aarch64-linux-gnu- > /dev/null
 )
 
 exit 0
