@@ -1,5 +1,7 @@
 variables:
   IMAGE_TAG: "2020-03-05-1"
+  UBOOT_URL: "https://github.com/u-boot/u-boot"
+  UBOOT_BRANCH: "master"
   LINARO_TOOLCHAIN_URL: "https://releases.linaro.org/components/toolchain/binaries/7.5-2019.12/aarch64-linux-gnu/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu.tar.xz"
 
 stages:
@@ -32,7 +34,9 @@ build:initrd:
   image: $CI_REGISTRY_IMAGE:$IMAGE_TAG
   
   before_script:
-    - git clone https://github.com/u-boot/u-boot --branch=master --depth=1 /tmp/u-boot
+    - [ -d results ] || mkdir results
+    - [ -d /tmp/toolchain ] || mkdir -p /tmp/toolchain
+    - git clone $UBOOT_URL --branch=$UBOOT_BRANCH --depth=1 /tmp/u-boot
     - wget -qO- $LINARO_TOOLCHAIN_URL  | tar -xJ --strip-components=1 -C /tmp/toolchain
 
   script:
