@@ -51,14 +51,14 @@ build:docker:
 build:master:
   extends: .build
   variables:
-    BOARDS: "odroid-c2 odroid-n2 p212 s400 p201 p200 u200 libretech-cc libretech-ac khadas-vim khadas-vim2 khadas-vim3 khadas-vim2l nanopi-k2 sei510 sei610"
+    BOARDS: "odroid-c2 odroid-n2 p212 s400 p201 p200 u200 libretech-cc libretech-ac khadas-vim khadas-vim2 khadas-vim3 khadas-vim3l nanopi-k2 sei510 sei610"
     UBOOT_URL: "https://github.com/u-boot/u-boot"
     UBOOT_BRANCH: "master"
 
 build:u-boot-amlogic:
   extends: .build
   variables:
-    BOARDS: "odroid-c2 odroid-n2 p212 s400 p201 p200 u200 libretech-cc libretech-ac khadas-vim khadas-vim2 khadas-vim3 khadas-vim2l nanopi-k2 sei510 sei610"
+    BOARDS: "odroid-c2 odroid-n2 p212 s400 p201 p200 u200 libretech-cc libretech-ac khadas-vim khadas-vim2 khadas-vim3 khadas-vim3l nanopi-k2 sei510 sei610"
     UBOOT_URL: "https://gitlab.denx.de/u-boot/custodians/u-boot-amlogic"
     UBOOT_BRANCH: "u-boot-amlogic"
 
