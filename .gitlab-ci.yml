@@ -29,7 +29,7 @@ build:docker:
 
 build:initrd:
   tags: 
-    - docker
+    - u-boot
   stage: build
   image: $CI_REGISTRY_IMAGE:$IMAGE_TAG
   
