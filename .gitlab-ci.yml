@@ -43,7 +43,7 @@ build:initrd:
     - bash build.sh /tmp/toolchain/bin /tmp/u-boot libretech-cc
 
   after_script:
-    - cp build_libretech-cc/u-boot.bin results/u-boot_libretech-cc.bin
+    - cp /tmp/u-boot/build_libretech-cc/u-boot.bin results/u-boot_libretech-cc.bin
 
   artifacts:
     when: always
