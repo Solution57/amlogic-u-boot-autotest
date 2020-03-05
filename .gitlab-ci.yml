@@ -34,8 +34,8 @@ build:initrd:
   image: $CI_REGISTRY_IMAGE:$IMAGE_TAG
   
   before_script:
-    - [ -d results ] || mkdir results
-    - [ -d /tmp/toolchain ] || mkdir -p /tmp/toolchain
+    - "[ -d results ] || mkdir results"
+    - "[ -d /tmp/toolchain ] || mkdir -p /tmp/toolchain"
     - git clone $UBOOT_URL --branch=$UBOOT_BRANCH --depth=1 /tmp/u-boot
     - wget -qO- $LINARO_TOOLCHAIN_URL  | tar -xJ --strip-components=1 -C /tmp/toolchain
 
