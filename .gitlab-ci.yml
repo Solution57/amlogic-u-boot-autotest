@@ -1,5 +1,5 @@
 variables:
-  IMAGE_TAG: "2020-03-05-1"
+  IMAGE_TAG: "2020-03-05-2"
   UBOOT_URL: "https://github.com/u-boot/u-boot"
   UBOOT_BRANCH: "master"
   LINARO_TOOLCHAIN_URL: "https://releases.linaro.org/components/toolchain/binaries/7.5-2019.12/aarch64-linux-gnu/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu.tar.xz"
