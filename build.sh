@@ -10,7 +10,7 @@ fi
 (
     cd $2
     make O=build_$3 ${3}_defconfig > /dev/null
-    make O=build_$3 CROSS_COMPILE=$1/aarch64-linux-gnu- > /dev/null
+    make O=build_$3 CROSS_COMPILE=$1/aarch64-linux-gnu- -j4 > /dev/null
 )
 
 exit 0
