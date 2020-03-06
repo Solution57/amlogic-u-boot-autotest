@@ -46,7 +46,7 @@ case $BOARD in
     $FIPDIR/aml_encrypt_gxl --bl3enc --input $DESTDIR/bl31.img
     $FIPDIR/aml_encrypt_gxl --bl3enc --input $DESTDIR/bl33.bin
     $FIPDIR/aml_encrypt_gxl --bl2sig --input $DESTDIR/bl2_new.bin --output $DESTDIR/bl2.n.bin.sig
-    $FIPDIR/aml_encrypt_gxl --bootmk --output $DESTDIR/u-boot.bin --bl2
+    $FIPDIR/aml_encrypt_gxl --bootmk --output $DESTDIR/u-boot.bin --bl2 $DESTDIR/bl2.n.bin.sig --bl30 $DESTDIR/bl30_new.bin.enc --bl31 $DESTDIR/bl31.img.enc --bl33 $DESTDIR/bl33.bin.enc
 	;;
 
 	*)
