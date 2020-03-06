@@ -85,7 +85,7 @@ build:u-boot-amlogic-next:
     UBOOT_BRANCH: "u-boot-amlogic-next"
 
 
-run:master-libretech-cc
+run:master:libretech-cc:
   extends: .run
   needs: ["build:master"]
   dependencies:
@@ -93,7 +93,7 @@ run:master-libretech-cc
   variables:
     BOARD: "libretech-cc"
 
-run:u-boot-amlogic-libretech-cc
+run:u-boot-amlogic:libretech-cc:
   extends: .run
   needs: ["build:u-boot-amlogic"]
   dependencies:
@@ -101,7 +101,7 @@ run:u-boot-amlogic-libretech-cc
   variables:
     BOARD: "libretech-cc"
 
-run:u-boot-amlogic-next-libretech-cc
+run:u-boot-amlogic-next:libretech-cc:
   extends: .run
   needs: ["build:u-boot-amlogic-next"]
   dependencies:
