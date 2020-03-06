@@ -5,6 +5,7 @@ variables:
 stages:
   - docker
   - build
+  - run
 
 build:docker:
   stage: docker
@@ -48,6 +49,20 @@ build:docker:
     paths:
       - results/
 
+.run:
+  tags: 
+    - u-boot-test
+  stage: run
+  image: $CI_REGISTRY_IMAGE:$IMAGE_TAG
+
+  script:
+    - bash run.sh $PWD/results/u-boot_$BOARD.bin $BOARD ; done
+
+  artifacts:
+    when: always
+    paths:
+      - results/
+
 build:master:
   extends: .build
   variables:
@@ -69,3 +84,27 @@ build:u-boot-amlogic-next:
     UBOOT_URL: "https://gitlab.denx.de/u-boot/custodians/u-boot-amlogic"
     UBOOT_BRANCH: "u-boot-amlogic-next"
 
+
+run:master:libretech-cc
+  extends: .run
+  needs: ["build:master"]
+  dependencies:
+    - build:master
+  variables:
+    BOARD: "libretech-cc"
+
+run:u-boot-amlogic:libretech-cc
+  extends: .run
+  needs: ["build:u-boot-amlogic"]
+  dependencies:
+    - build:u-boot-amlogic
+  variables:
+    BOARD: "libretech-cc"
+
+run:u-boot-amlogic-next:libretech-cc
+  extends: .run
+  needs: ["build:u-boot-amlogic-next"]
+  dependencies:
+    - build:u-boot-amlogic-next
+  variables:
+    BOARD: "libretech-cc"
