@@ -54,9 +54,12 @@ build:docker:
     - u-boot-test
   stage: run
   image: $CI_REGISTRY_IMAGE:$IMAGE_TAG
+  
+  before_script:
+    - git clone https://github.com/LibreELEC/amlogic-boot-fip --depth=1 /tmp/fip
 
   script:
-    - bash run.sh $PWD/results/u-boot_$BOARD.bin "$BOARD" $PORT $TTY "$PROMPT"
+    - bash run.sh $PWD/results/u-boot_$BOARD.bin "$BOARD" $PORT $TTY "$PROMPT" /tmp/fip
 
   artifacts:
     when: always

@@ -19,7 +19,7 @@ RUN apt-get install -qq git
 RUN apt-get install -qq zlib1g:i386
 
 # Add tools
-RUN apt-get install uhubctl
+RUN apt-get install -qq uhubctl
 
 # Setup system
 RUN apt-get install -qq locales
