@@ -21,14 +21,6 @@ RUN apt-get install -qq zlib1g:i386
 # Add tools
 RUN apt-get install -qq uhubctl
 
-# Setup system
-RUN apt-get install -qq locales
-RUN locale-gen en_US.UTF-8
-RUN update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
-
-# Use en_US.UTF-8 locale
-ENV LANG=en_US.UTF-8
-
 # Clone lab-tools
 RUN git clone https://github.com/montjoie/lab-tools --depth 1
 
