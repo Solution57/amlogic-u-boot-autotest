@@ -37,12 +37,13 @@ build:docker:
     - "[ -d /tmp/toolchain ] || mkdir -p /tmp/toolchain"
     - git clone $UBOOT_URL --branch=$UBOOT_BRANCH --depth=1 /tmp/u-boot
     - wget -qO- $LINARO_TOOLCHAIN_URL  | tar -xJ --strip-components=1 -C /tmp/toolchain
+    - git clone https://github.com/LibreELEC/amlogic-boot-fip --depth=1 /tmp/fip
 
   script:
-    - for board in $BOARDS ; do bash build.sh /tmp/toolchain/bin /tmp/u-boot $board ; done
+    - for board in $BOARDS ; do bash build.sh /tmp/toolchain/bin /tmp/u-boot $board /tmp/fip ; done
 
   after_script:
-    - for board in $BOARDS ; do cp /tmp/u-boot/build_$board/u-boot.bin results/u-boot_$board.bin ; done
+    - for board in $BOARDS ; do mkdir -p results/$board ; cp /tmp/u-boot/build_$board/u-boot.bin results/$board/u-boot.orig.bin ; cp /tmp/u-boot/build_$board/fip/u-boot* results/$board/ ; done
 
   artifacts:
     when: always
@@ -54,12 +55,9 @@ build:docker:
     - u-boot-test
   stage: run
   image: $CI_REGISTRY_IMAGE:$IMAGE_TAG
-  
-  before_script:
-    - git clone https://github.com/LibreELEC/amlogic-boot-fip --depth=1 /tmp/fip
 
   script:
-    - bash run.sh $PWD/results/u-boot_$BOARD.bin "$BOARD" $PORT $TTY "$PROMPT" /tmp/fip
+    - bash run.sh $PWD/results/$BOARD/ "$BOARD" $PORT $TTY "$PROMPT"
 
   artifacts:
     when: always
