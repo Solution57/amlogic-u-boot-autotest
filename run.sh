@@ -56,12 +56,12 @@ esac
 
 stty -F /dev/$TTY 115200 cs8 parenb
 
-sh lab-tools/amaz.sh -a off -p $PORT
+sh /opt/lab-tools/amaz.sh -a off -p $PORT
 sleep 1
-sh lab-tools/amaz.sh -a on -p $PORT
+sh /opt/lab-tools/amaz.sh -a on -p $PORT
 sleep 1
 
-pyamlboot/boot.py --board-files $DESTDIR/ $BOARD
+/opt/pyamlboot/boot.py --board-files $DESTDIR/ $BOARD
 
 N=0
 while read -ra bytes
@@ -73,6 +73,6 @@ do
   fi
 done < /dev/$TTY
 
-sh lab-tools/amaz.sh -a off -p $PORT
+sh /opt/lab-tools/amaz.sh -a off -p $PORT
 
 exit 0

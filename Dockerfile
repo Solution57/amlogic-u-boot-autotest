@@ -22,7 +22,9 @@ RUN apt-get install -qq zlib1g:i386
 RUN apt-get install -qq uhubctl
 
 # Clone lab-tools
-RUN git clone https://github.com/montjoie/lab-tools --depth 1
+RUN mkdir -p /opt/lab-tools
+RUN git clone https://github.com/montjoie/lab-tools --depth 1 /opt/lab-tools
 
 # Clone pyamlboot
-RUN git clone https://github.com/superna9999/pyamlboot --depth 1
+RUN mkdir -p /opt/pyamlboot
+RUN git clone https://github.com/superna9999/pyamlboot --depth 1 /opt/pyamlboot
