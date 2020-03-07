@@ -98,6 +98,7 @@ case $SOC in
 	"gxb" | "odroid-c2")
     # TODO
 	exit 0
+    ;;
 	"gxl" | "gxm")
     cp $FIPDIR/bl2.bin $DESTDIR/
     cp $FIPDIR/acs.bin $DESTDIR/
@@ -140,6 +141,7 @@ case $SOC in
 	"g12b")
     # TODO
 	exit 0
+    ;;
 esac
 
 exit 0
