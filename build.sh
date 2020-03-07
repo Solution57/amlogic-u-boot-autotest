@@ -106,7 +106,7 @@ case $SOC in
     cp $FIPDIR/bl30.bin $DESTDIR/
     cp $FIPDIR/bl301.bin $DESTDIR/
     cp $FIPDIR/bl31.img $DESTDIR/
-    cp $UBOOT $DESTDIR/bl33.bin
+    cp build_$BOARD/u-boot.bin $DESTDIR/bl33.bin
 
     $FIPDIR/blx_fix.sh $DESTDIR/bl30.bin \
                        $DESTDIR/zero_tmp \
