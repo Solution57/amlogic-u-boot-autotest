@@ -22,8 +22,6 @@ FIPDIR=$4
 # Package with FIP
 DESTDIR=$UBOOT/build_$BOARD/fip
 
-mkdir -p $DESTDIR
-
 case $BOARD in
 	"odroid-c2")
 	FIPDIR="$FIPDIR/odroid-c2"
@@ -93,6 +91,8 @@ case $BOARD in
 	echo "Unsupported board"
 	exit 1
 esac
+
+mkdir -p $DESTDIR
 
 case $SOC in
 	"gxbb")
