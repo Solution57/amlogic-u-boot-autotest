@@ -94,7 +94,7 @@ run:master:libretech-cc:
     - build:master
   variables:
     BOARD: "libretech-cc"
-    PORT: "1"
+    PORT: "4"
     TTY: "ttyUSB0"
     PROMPT: "=>"
 
@@ -105,7 +105,7 @@ run:u-boot-amlogic:libretech-cc:
     - build:u-boot-amlogic
   variables:
     BOARD: "libretech-cc"
-    PORT: "1"
+    PORT: "4"
     TTY: "ttyUSB0"
     PROMPT: "=>"
 
@@ -116,6 +116,6 @@ run:u-boot-amlogic-next:libretech-cc:
     - build:u-boot-amlogic-next
   variables:
     BOARD: "libretech-cc"
-    PORT: "1"
+    PORT: "4"
     TTY: "ttyUSB0"
     PROMPT: "=>"
