@@ -15,6 +15,6 @@ if __name__ == '__main__':
         if line.find(PROMPT.encode()) >= 0:
             stop = True
         sys.stdout.write("> ")
-        sys.stdout.write(line)
+        sys.stdout.write(line.decode())
 
     s.close()
