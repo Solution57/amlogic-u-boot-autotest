@@ -318,4 +318,6 @@ case $SOC in
     ;;
 esac
 
+ls ${DESTDIR}/
+
 exit 0
