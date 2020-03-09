@@ -2,7 +2,7 @@
 
 set -ex
 
-if [ "$#" -lt 3 ] ; then
+if [ "$#" -lt 4 ] ; then
 	echo "Usage: $0 <toolchain> <u-boot-path> <board> <fipdir>"
 	exit 1
 fi
@@ -20,7 +20,7 @@ FIPDIR=$4
 )
 
 # Package with FIP
-DESTDIR=build_$BOARD/fip
+DESTDIR=$UBOOT/build_$BOARD/fip
 
 mkdir -p $DESTDIR
 
@@ -106,7 +106,7 @@ case $SOC in
     cp $FIPDIR/bl30.bin $DESTDIR/
     cp $FIPDIR/bl301.bin $DESTDIR/
     cp $FIPDIR/bl31.img $DESTDIR/
-    cp build_$BOARD/u-boot.bin $DESTDIR/bl33.bin
+    cp $UBOOT/build_$BOARD/u-boot.bin $DESTDIR/bl33.bin
 
     $FIPDIR/blx_fix.sh $DESTDIR/bl30.bin \
                        $DESTDIR/zero_tmp \
