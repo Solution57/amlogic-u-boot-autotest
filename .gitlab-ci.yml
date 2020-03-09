@@ -44,7 +44,7 @@ build:docker:
 
   after_script:
     - for board in $BOARDS ; do mkdir -p results/$board ; cp /tmp/u-boot/build_$board/u-boot.bin results/$board/u-boot.orig.bin ; done
-    - "for board in $BOARDS ; [ -e '/tmp/u-boot/build_$board/fip/u-boot.bin' ] && cp /tmp/u-boot/build_$board/fip/u-boot* results/$board/ ; done"
+    - "for board in $BOARDS ; do [ -e '/tmp/u-boot/build_$board/fip/u-boot.bin' ] && cp /tmp/u-boot/build_$board/fip/u-boot* results/$board/ ; done"
 
   artifacts:
     when: always

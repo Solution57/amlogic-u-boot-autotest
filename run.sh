@@ -2,7 +2,7 @@
 
 set -ex
 
-if [ "$#" -lt 6 ] ; then
+if [ "$#" -lt 5 ] ; then
 	echo "Usage: $0 <u-boot dir> <board> <port> <tty> <prompt>"
 	exit 1
 fi
