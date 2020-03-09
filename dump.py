@@ -12,9 +12,9 @@ if __name__ == '__main__':
 
     while not stop:
         line = s.readline()
-        lineSrt = line.encode()
-        if PROMPT in lineStr:
+        if line.find(PROMPT.encode()) >= 0:
             stop = True
-        sys.stdout.write("> %s" % lineStr)
+        sys.stdout.write("> ")
+        sys.stdout.write(line)
 
     s.close()
