@@ -65,7 +65,7 @@ build:docker:
     paths:
       - results/
 
-build:master:
+.build:master:
   extends: .build
   variables:
     BOARDS: "odroid-c2 odroid-n2 p212 s400 p201 p200 u200 libretech-cc libretech-ac khadas-vim khadas-vim2 khadas-vim3 khadas-vim3l nanopi-k2 sei510 sei610"
@@ -79,7 +79,7 @@ build:u-boot-amlogic:
     UBOOT_URL: "https://gitlab.denx.de/u-boot/custodians/u-boot-amlogic"
     UBOOT_BRANCH: "u-boot-amlogic"
 
-build:u-boot-amlogic-next:
+.build:u-boot-amlogic-next:
   extends: .build
   variables:
     BOARDS: "libretech-cc libretech-ac sei510 sei610"
@@ -87,7 +87,7 @@ build:u-boot-amlogic-next:
     UBOOT_BRANCH: "u-boot-amlogic-next"
 
 
-run:master:libretech-cc:
+.run:master:libretech-cc:
   extends: .run
   needs: ["build:master"]
   dependencies:
@@ -98,7 +98,7 @@ run:master:libretech-cc:
     TTY: "ttyUSB0"
     PROMPT: "=>"
 
-run:u-boot-amlogic:libretech-cc:
+.run:u-boot-amlogic:libretech-cc:
   extends: .run
   needs: ["build:u-boot-amlogic"]
   dependencies:
@@ -109,7 +109,7 @@ run:u-boot-amlogic:libretech-cc:
     TTY: "ttyUSB0"
     PROMPT: "=>"
 
-run:u-boot-amlogic-next:libretech-cc:
+.run:u-boot-amlogic-next:libretech-cc:
   extends: .run
   needs: ["build:u-boot-amlogic-next"]
   dependencies:
