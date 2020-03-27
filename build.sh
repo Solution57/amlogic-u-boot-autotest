@@ -46,10 +46,12 @@ case $BOARD in
     SOC="axg"
     ;;
 	"p201")
-	exit 0
+	FIPDIR="$FIPDIR/p201"
+    SOC="gxbb"
     ;;
 	"p200")
-	exit 0
+	FIPDIR="$FIPDIR/p200"
+    SOC="gxbb"
     ;;
 	"u200")
 	FIPDIR="$FIPDIR/u200"
