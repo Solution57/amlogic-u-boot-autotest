@@ -52,8 +52,8 @@ case $BOARD in
 	exit 0
     ;;
 	"u200")
-    # TODO
-	exit 0
+	FIPDIR="$FIPDIR/u200"
+    SOC="g12a"
     ;;
 	"libretech-cc")
 	FIPDIR="$FIPDIR/lepotato"
@@ -92,14 +92,12 @@ case $BOARD in
     SOC="gxbb"
     ;;
 	"sei510")
+	FIPDIR="$FIPDIR/sei510"
     SOC="g12a"
-    # TODO
-	exit 0
     ;;
 	"sei610")
+	FIPDIR="$FIPDIR/sei610"
     SOC="sm1"
-    # TODO
-	exit 0
     ;;
     *)
 	echo "Unsupported board"
