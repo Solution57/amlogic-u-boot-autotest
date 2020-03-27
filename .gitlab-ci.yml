@@ -37,7 +37,7 @@ build:docker:
     - "[ -d /tmp/toolchain ] || mkdir -p /tmp/toolchain"
     - git clone $UBOOT_URL --branch=$UBOOT_BRANCH --depth=1 /tmp/u-boot
     - wget -qO- $LINARO_TOOLCHAIN_URL  | tar -xJ --strip-components=1 -C /tmp/toolchain
-    - git clone https://github.com/LibreELEC/amlogic-boot-fip --depth=1 /tmp/fip
+    - git clone https://gitlab.com/superna9999/amlogic-boot-fip --depth=1 /tmp/fip
 
   script:
     - for board in $BOARDS ; do bash build.sh /tmp/toolchain/bin /tmp/u-boot $board /tmp/fip ; done
