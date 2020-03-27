@@ -130,7 +130,7 @@ case $SOC in
 			 --bl33 ${DESTDIR}/bl33.bin \
 			 ${DESTDIR}/fip.bin
 
-    python3 ${FIPDIR}/acs_tool.pyc ${DESTDIR}/bl2.bin \
+    python3 ${FIPDIR}/acs_tool.py ${DESTDIR}/bl2.bin \
 				  ${DESTDIR}/bl2_acs.bin \
 				  ${DESTDIR}/acs.bin 0
 
