@@ -150,7 +150,7 @@ case $SOC in
     cp $FIPDIR/bl2.package $DESTDIR/
     cp $FIPDIR/bl30.bin $DESTDIR/
     cp $FIPDIR/bl301.bin $DESTDIR/
-    cp $FIPDIR/bl31.img $DESTDIR/
+    cp $FIPDIR/bl31.bin $DESTDIR/
     cp $UBOOT/build_$BOARD/u-boot.bin $DESTDIR/bl33.bin
 
     ${FIPDIR}/fip_create --bl30 ${DESTDIR}/bl30.bin \
