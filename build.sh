@@ -227,7 +227,6 @@ case $SOC in
 	"g12a" | "sm1")
     cp $FIPDIR/bl2.bin $DESTDIR/
     cp $FIPDIR/acs.bin $DESTDIR/
-    cp $FIPDIR/bl21.bin $DESTDIR/
     cp $FIPDIR/bl30.bin $DESTDIR/
     cp $FIPDIR/bl301.bin $DESTDIR/
     cp $FIPDIR/bl31.img $DESTDIR/
@@ -280,7 +279,6 @@ case $SOC in
 	"g12b")
     cp $FIPDIR/bl2.bin $DESTDIR/
     cp $FIPDIR/acs.bin $DESTDIR/
-    cp $FIPDIR/bl21.bin $DESTDIR/
     cp $FIPDIR/bl30.bin $DESTDIR/
     cp $FIPDIR/bl301.bin $DESTDIR/
     cp $FIPDIR/bl31.img $DESTDIR/
