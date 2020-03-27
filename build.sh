@@ -12,6 +12,12 @@ UBOOT=$2
 BOARD=$3
 FIPDIR=$4
 
+# Check if config exists, otherwise ignore
+if ! [ -e $UBOOT/configs/${BOARD}_defconfig ] ; then
+    echo "Unsupported board"
+    exit 0
+fi
+
 # Build U-Boot
 (
     cd $UBOOT
@@ -56,6 +62,14 @@ case $BOARD in
 	"libretech-ac")
 	FIPDIR="$FIPDIR/lafrite"
     SOC="gxl"
+    ;;
+	"libretech-s905d-pc")
+    # TODO
+	exit 0
+    ;;
+	"libretech-s912-pc")
+    # TODO
+	exit 0
     ;;
 	"khadas-vim")
 	FIPDIR="$FIPDIR/khadas-vim"
