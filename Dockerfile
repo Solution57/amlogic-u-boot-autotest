@@ -10,7 +10,7 @@ RUN dpkg --add-architecture i386
 RUN apt-get update -qq
 
 # Install OE dependencies
-RUN apt-get install -qq gawk bison flex wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat libsdl1.2-dev xterm python2.7 python-minimal cpio python3 python3-usb python-usb python3-serial python-serial
+RUN apt-get install -qq gawk bison flex wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat libsdl1.2-dev xterm python2.7 python-minimal cpio python3 python3-usb python-usb python3-serial python-serial bc
     
 # Install git
 RUN apt-get install -qq git
