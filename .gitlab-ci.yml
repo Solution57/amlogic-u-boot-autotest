@@ -13,7 +13,7 @@ build:docker:
   tags: 
     - docker
   rules:
-    - if: '$TEST_REPO ~= ""'
+    - if: '$TEST_REPO'
       when: always
     - when: manual
   variables:
