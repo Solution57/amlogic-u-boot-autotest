@@ -86,6 +86,8 @@ build:u-boot-amlogic:
   rules:
     - if: '$TEST_REPO == "u-boot-amlogic"'
       when: always
+    - if: '$TEST_REPO'
+      when: never
     - when: manual
   variables:
     UBOOT_URL: "https://gitlab.denx.de/u-boot/custodians/u-boot-amlogic"
