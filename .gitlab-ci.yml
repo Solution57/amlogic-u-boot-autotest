@@ -12,6 +12,10 @@ build:docker:
   stage: docker
   tags: 
     - docker
+  rules:
+    - if: '$TEST_REPO ~= ""'
+      when: always
+    - when: manual
   variables:
     DOCKER_HOST: tcp://docker:2375/
     DOCKER_DRIVER: overlay2
@@ -71,7 +75,7 @@ build:master:
   rules:
     - if: '$TEST_REPO == "master"'
       when: always
-    - when: manual
+    - when: on_success
   variables:
     UBOOT_URL: "https://github.com/u-boot/u-boot"
     UBOOT_BRANCH: "master"
@@ -81,7 +85,7 @@ build:u-boot-amlogic:
   rules:
     - if: '$TEST_REPO == "u-boot-amlogic"'
       when: always
-    - when: manual
+    - when: on_success
   variables:
     UBOOT_URL: "https://gitlab.denx.de/u-boot/custodians/u-boot-amlogic"
     UBOOT_BRANCH: "u-boot-amlogic"
@@ -91,7 +95,7 @@ build:u-boot-amlogic-next:
   rules:
     - if: '$TEST_REPO == "u-boot-amlogic-next"'
       when: always
-    - when: manual
+    - when: on_success
   variables:
     UBOOT_URL: "https://gitlab.denx.de/u-boot/custodians/u-boot-amlogic"
     UBOOT_BRANCH: "u-boot-amlogic-next"
@@ -101,7 +105,7 @@ build:u-boot-amlogic-test:
   rules:
     - if: '$TEST_REPO == "u-boot-amlogic-test"'
       when: always
-    - when: manual
+    - when: on_success
   variables:
     UBOOT_URL: "https://gitlab.denx.de/u-boot/custodians/u-boot-amlogic"
     UBOOT_BRANCH: "u-boot-amlogic-test"
