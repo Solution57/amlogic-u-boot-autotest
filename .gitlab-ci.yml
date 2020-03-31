@@ -37,9 +37,9 @@ build:docker:
   stage: build
   image: $CI_REGISTRY_IMAGE:$IMAGE_TAG
   rules:
-    - if: '$TEST_REPO == ""'
-      when: on_success
-    - when: manual
+    - if: '$TEST_REPO'
+      when: manual
+    - when: on_success
   before_script:
     - "[ -d results ] || mkdir results"
     - "[ -d /tmp/toolchain ] || mkdir -p /tmp/toolchain"
