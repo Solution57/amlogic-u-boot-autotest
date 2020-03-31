@@ -68,21 +68,43 @@ build:docker:
 
 build:master:
   extends: .build
+  rules:
+    - if: '$TEST_REPO == master'
+      when: always
+    - when: manual
   variables:
     UBOOT_URL: "https://github.com/u-boot/u-boot"
     UBOOT_BRANCH: "master"
 
 build:u-boot-amlogic:
   extends: .build
+  rules:
+    - if: '$TEST_REPO == u-boot-amlogic'
+      when: always
+    - when: manual
   variables:
     UBOOT_URL: "https://gitlab.denx.de/u-boot/custodians/u-boot-amlogic"
     UBOOT_BRANCH: "u-boot-amlogic"
 
 build:u-boot-amlogic-next:
   extends: .build
+  rules:
+    - if: '$TEST_REPO == u-boot-amlogic-next'
+      when: always
+    - when: manual
   variables:
     UBOOT_URL: "https://gitlab.denx.de/u-boot/custodians/u-boot-amlogic"
     UBOOT_BRANCH: "u-boot-amlogic-next"
+
+build:u-boot-amlogic-test:
+  extends: .build
+  rules:
+    - if: '$TEST_REPO == u-boot-amlogic-test'
+      when: always
+    - when: manual
+  variables:
+    UBOOT_URL: "https://gitlab.denx.de/u-boot/custodians/u-boot-amlogic"
+    UBOOT_BRANCH: "u-boot-amlogic-test"
 
 .run:master:libretech-cc:
   extends: .run
