@@ -36,10 +36,6 @@ build:docker:
     - u-boot
   stage: build
   image: $CI_REGISTRY_IMAGE:$IMAGE_TAG
-  rules:
-    - if: '$TEST_REPO'
-      when: manual
-    - when: on_success
   before_script:
     - "[ -d results ] || mkdir results"
     - "[ -d /tmp/toolchain ] || mkdir -p /tmp/toolchain"
@@ -78,6 +74,7 @@ build:master:
   rules:
     - if: '$TEST_REPO == "master"'
       when: always
+    - when: manual
   variables:
     UBOOT_URL: "https://github.com/u-boot/u-boot"
     UBOOT_BRANCH: "master"
@@ -87,6 +84,7 @@ build:u-boot-amlogic:
   rules:
     - if: '$TEST_REPO == "u-boot-amlogic"'
       when: always
+    - when: manual
   variables:
     UBOOT_URL: "https://gitlab.denx.de/u-boot/custodians/u-boot-amlogic"
     UBOOT_BRANCH: "u-boot-amlogic"
@@ -96,6 +94,7 @@ build:u-boot-amlogic-next:
   rules:
     - if: '$TEST_REPO == "u-boot-amlogic-next"'
       when: always
+    - when: manual
   variables:
     UBOOT_URL: "https://gitlab.denx.de/u-boot/custodians/u-boot-amlogic"
     UBOOT_BRANCH: "u-boot-amlogic-next"
@@ -105,6 +104,7 @@ build:u-boot-amlogic-test:
   rules:
     - if: '$TEST_REPO == "u-boot-amlogic-test"'
       when: always
+    - when: manual
   variables:
     UBOOT_URL: "https://gitlab.denx.de/u-boot/custodians/u-boot-amlogic"
     UBOOT_BRANCH: "u-boot-amlogic-test"
