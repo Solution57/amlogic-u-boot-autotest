@@ -74,6 +74,8 @@ build:master:
   rules:
     - if: '$TEST_REPO == "master"'
       when: always
+    - if: '$TEST_REPO'
+      when: never
     - when: manual
   variables:
     UBOOT_URL: "https://github.com/u-boot/u-boot"
@@ -94,6 +96,8 @@ build:u-boot-amlogic-next:
   rules:
     - if: '$TEST_REPO == "u-boot-amlogic-next"'
       when: always
+    - if: '$TEST_REPO'
+      when: never
     - when: manual
   variables:
     UBOOT_URL: "https://gitlab.denx.de/u-boot/custodians/u-boot-amlogic"
@@ -104,6 +108,8 @@ build:u-boot-amlogic-test:
   rules:
     - if: '$TEST_REPO == "u-boot-amlogic-test"'
       when: always
+    - if: '$TEST_REPO'
+      when: never
     - when: manual
   variables:
     UBOOT_URL: "https://gitlab.denx.de/u-boot/custodians/u-boot-amlogic"
