@@ -66,12 +66,12 @@ case $BOARD in
     SOC="gxl"
     ;;
 	"libretech-s905d-pc")
-    # TODO
-	exit 0
+	FIPDIR="$FIPDIR/tartiflette-s905d"
+    SOC="gxl"
     ;;
 	"libretech-s912-pc")
-    # TODO
-	exit 0
+	FIPDIR="$FIPDIR/tartiflette-s912"
+    SOC="gxm"
     ;;
 	"khadas-vim")
 	FIPDIR="$FIPDIR/khadas-vim"
