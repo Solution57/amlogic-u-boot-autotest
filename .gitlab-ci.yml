@@ -116,6 +116,7 @@ build:u-boot-amlogic-test:
   variables:
     UBOOT_URL: "https://gitlab.denx.de/u-boot/custodians/u-boot-amlogic"
     UBOOT_BRANCH: "u-boot-amlogic-test"
+    BOARDS: "libretech-cc libretech-ac khadas-vim2 khadas-vim3 khadas-vim3l"
 
 .run:master:libretech-cc:
   extends: .run
