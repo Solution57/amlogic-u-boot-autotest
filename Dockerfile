@@ -28,3 +28,6 @@ RUN git clone https://github.com/montjoie/lab-tools --depth 1 /opt/lab-tools
 # Clone pyamlboot
 RUN mkdir -p /opt/pyamlboot
 RUN git clone https://github.com/superna9999/pyamlboot --depth 1 /opt/pyamlboot
+
+# Download and decompress toolchain
+RUN wget -qO- https://releases.linaro.org/components/toolchain/binaries/7.5-2019.12/aarch64-linux-gnu/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu.tar.xz  | tar -xJ --strip-components=1 -C /opt/toolchain

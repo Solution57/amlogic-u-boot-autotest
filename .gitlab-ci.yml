@@ -1,6 +1,5 @@
 variables:
-  IMAGE_TAG: "2020-03-30-01"
-  LINARO_TOOLCHAIN_URL: "https://releases.linaro.org/components/toolchain/binaries/7.5-2019.12/aarch64-linux-gnu/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu.tar.xz"
+  IMAGE_TAG: "2020-04-20-01"
   BOARDS: "odroid-c2 odroid-n2 p212 s400 p201 p200 u200 libretech-cc libretech-ac libretech-s905d-pc libretech-s912-pc khadas-vim khadas-vim2 khadas-vim3 khadas-vim3l nanopi-k2 sei510 sei610"
 
 stages:
@@ -38,13 +37,11 @@ build:docker:
   image: $CI_REGISTRY_IMAGE:$IMAGE_TAG
   before_script:
     - "[ -d results ] || mkdir results"
-    - "[ -d /tmp/toolchain ] || mkdir -p /tmp/toolchain"
     - git clone $UBOOT_URL --branch=$UBOOT_BRANCH --depth=1 /tmp/u-boot
-    - wget -qO- $LINARO_TOOLCHAIN_URL  | tar -xJ --strip-components=1 -C /tmp/toolchain
     - git clone https://gitlab.com/superna9999/amlogic-boot-fip --depth=1 /tmp/fip
 
   script:
-    - for board in $BOARDS ; do bash build.sh /tmp/toolchain/bin /tmp/u-boot $board /tmp/fip ; done
+    - for board in $BOARDS ; do bash build.sh /opt/toolchain/bin /tmp/u-boot $board /tmp/fip ; done
 
   after_script:
     - "for board in $BOARDS ; do [ -d /tmp/u-boot/build_$board ]  && ( mkdir -p results/$board ; cp /tmp/u-boot/build_$board/u-boot.bin results/$board/u-boot.orig.bin ) ; done"
