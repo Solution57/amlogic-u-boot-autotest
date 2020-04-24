@@ -33,6 +33,10 @@ case $BOARD in
 	FIPDIR="$FIPDIR/odroid-c2"
     SOC="odroid-c2"
     ;;
+	"odroid-c4")
+	FIPDIR="$FIPDIR/odroid-c4"
+    SOC="sm1"
+    ;;
 	"odroid-n2")
 	FIPDIR="$FIPDIR/odroid-n2"
     SOC="g12b"
