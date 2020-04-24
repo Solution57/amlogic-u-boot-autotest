@@ -38,7 +38,7 @@ build:docker:
   before_script:
     - "[ -d results ] || mkdir results"
     - git clone $UBOOT_URL --branch=$UBOOT_BRANCH --depth=1 /tmp/u-boot
-    - git clone https://github.com/chewitt/amlogic-boot-fip --depth=1 /tmp/fip
+    - git clone https://github.com/chewitt/amlogic-boot-fip -b new-devices --depth=1 /tmp/fip
 
   script:
     - for board in $BOARDS ; do bash build.sh /opt/toolchain/bin /tmp/u-boot $board /tmp/fip ; done
