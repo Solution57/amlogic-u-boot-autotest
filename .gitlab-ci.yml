@@ -1,6 +1,6 @@
 variables:
   IMAGE_TAG: "2020-04-20-01"
-  BOARDS: "odroid-c2 odroid-n2 p212 s400 p201 p200 u200 libretech-cc libretech-ac libretech-s905d-pc libretech-s912-pc khadas-vim khadas-vim2 khadas-vim3 khadas-vim3l nanopi-k2 sei510 sei610"
+  BOARDS: "odroid-c2 odroid-c4 odroid-n2 p212 s400 p201 p200 u200 libretech-cc libretech-ac libretech-s905d-pc libretech-s912-pc khadas-vim khadas-vim2 khadas-vim3 khadas-vim3l nanopi-k2 sei510 sei610"
 
 stages:
   - docker
