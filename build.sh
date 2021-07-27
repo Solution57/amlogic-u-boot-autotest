@@ -65,6 +65,10 @@ case $BOARD in
 	FIPDIR="$FIPDIR/lepotato"
     SOC="gxl"
     ;;
+	"libretech-cc_v2")
+	FIPDIR="$FIPDIR/lepotato"
+    SOC="gxl"
+    ;;
 	"libretech-ac")
 	FIPDIR="$FIPDIR/lafrite"
     SOC="gxl"
@@ -104,6 +108,18 @@ case $BOARD in
 	"sei610")
 	FIPDIR="$FIPDIR/sei610"
     SOC="sm1"
+    ;;
+	"wetek-core2")
+	FIPDIR="$FIPDIR/wetek-core2"
+    SOC="gxl"
+    ;;
+	"beelink-gtking")
+	FIPDIR="$FIPDIR/beelink-s922x"
+    SOC="g12b"
+    ;;
+	"beelink-gtkingpro")
+	FIPDIR="$FIPDIR/beelink-s922x"
+    SOC="g12b"
     ;;
     *)
 	echo "Unsupported board"
