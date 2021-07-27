@@ -138,6 +138,7 @@ case $SOC in
     cp $FIPDIR/bl31.img $DESTDIR/
     cp $UBOOT/build_$BOARD/u-boot.bin $DESTDIR/bl33.bin
 
+    chmod +x ${FIPDIR}/blx_fix.sh
     ${FIPDIR}/blx_fix.sh ${DESTDIR}/bl30.bin \
 			 ${DESTDIR}/zero_tmp \
 			 ${DESTDIR}/bl30_zero.bin \
@@ -145,6 +146,7 @@ case $SOC in
 			 ${DESTDIR}/bl301_zero.bin \
 			 ${DESTDIR}/bl30_new.bin bl30
 
+    chmod +x ${FIPDIR}/fip_create
     ${FIPDIR}/fip_create --bl30 ${DESTDIR}/bl30_new.bin \
 			 --bl31 ${DESTDIR}/bl31.img \
 			 --bl33 ${DESTDIR}/bl33.bin \
@@ -163,6 +165,7 @@ case $SOC in
 
     cat ${DESTDIR}/bl2_new.bin ${DESTDIR}/fip.bin > ${DESTDIR}/boot_new.bin
 
+    chmod +x ${FIPDIR}/aml_encrypt_gxb
     ${FIPDIR}/aml_encrypt_gxb --bootsig --input ${DESTDIR}/boot_new.bin \
 			      --output ${DESTDIR}/u-boot.bin
     ;;
@@ -173,6 +176,7 @@ case $SOC in
     cp $FIPDIR/bl31.bin $DESTDIR/
     cp $UBOOT/build_$BOARD/u-boot.bin $DESTDIR/bl33.bin
 
+    chmod +x ${FIPDIR}/fip_create
     ${FIPDIR}/fip_create --bl30 ${DESTDIR}/bl30.bin \
 			 --bl301 ${DESTDIR}/bl301.bin \
 			 --bl31 ${DESTDIR}/bl31.bin \
@@ -183,6 +187,7 @@ case $SOC in
 
     cat ${DESTDIR}/bl2.package ${DESTDIR}/fip.bin > ${DESTDIR}/boot_new.bin
 
+    chmod +x ${FIPDIR}/aml_encrypt_gxb
     ${FIPDIR}/aml_encrypt_gxb --bootsig \
 			      --input ${DESTDIR}/boot_new.bin \
 			      --output ${DESTDIR}/u-boot.bin
@@ -196,6 +201,7 @@ case $SOC in
     cp $FIPDIR/bl31.img $DESTDIR/
     cp $UBOOT/build_$BOARD/u-boot.bin $DESTDIR/bl33.bin
 
+    chmod +x $FIPDIR/blx_fix.sh
     $FIPDIR/blx_fix.sh $DESTDIR/bl30.bin \
                        $DESTDIR/zero_tmp \
                        $DESTDIR/bl30_zero.bin \
@@ -212,6 +218,7 @@ case $SOC in
                        $DESTDIR/bl21_zero.bin \
                        $DESTDIR/bl2_new.bin bl2
 
+    chmod +x $FIPDIR/aml_encrypt_gxl
     $FIPDIR/aml_encrypt_gxl --bl3enc --input $DESTDIR/bl30_new.bin
     $FIPDIR/aml_encrypt_gxl --bl3enc --input $DESTDIR/bl31.img
     $FIPDIR/aml_encrypt_gxl --bl3enc --input $DESTDIR/bl33.bin
@@ -227,12 +234,14 @@ case $SOC in
     cp $FIPDIR/bl31.img $DESTDIR/
     cp $UBOOT/build_$BOARD/u-boot.bin $DESTDIR/bl33.bin
 
+    chmod +x $FIPDIR/blx_fix.sh
     $FIPDIR/blx_fix.sh ${DESTDIR}/bl30.bin ${DESTDIR}/zero_tmp ${DESTDIR}/bl30_zero.bin ${DESTDIR}/bl301.bin ${DESTDIR}/bl301_zero.bin ${DESTDIR}/bl30_new.bin bl30
 
     python3 $FIPDIR/acs_tool.py ${DESTDIR}/bl2.bin ${DESTDIR}/bl2_acs.bin ${DESTDIR}/acs.bin 0
 
     $FIPDIR/blx_fix.sh ${DESTDIR}/bl2_acs.bin ${DESTDIR}/zero_tmp ${DESTDIR}/bl2_zero.bin ${DESTDIR}/bl21.bin ${DESTDIR}/bl21_zero.bin ${DESTDIR}/bl2_new.bin bl2
 
+    chmod +x ${FIPDIR}/aml_encrypt
     ${FIPDIR}/aml_encrypt --bl3sig --input ${DESTDIR}/bl30_new.bin --output ${DESTDIR}/bl30_new.bin.enc --level v3 --type bl30
     ${FIPDIR}/aml_encrypt --bl3sig --input ${DESTDIR}/bl31.img --output ${DESTDIR}/bl31.img.enc --level v3 --type bl31
     ${FIPDIR}/aml_encrypt --bl3sig --input $DESTDIR/bl33.bin --output ${DESTDIR}/bl33.bin.enc --level v3 --type bl33 --compress lz4
@@ -253,10 +262,12 @@ case $SOC in
     cp $FIPDIR/*.fw $DESTDIR/
     cp $UBOOT/build_$BOARD/u-boot.bin $DESTDIR/bl33.bin
 
+    chmod +x $FIPDIR/blx_fix.sh
     $FIPDIR/blx_fix.sh ${DESTDIR}/bl30.bin ${DESTDIR}/zero_tmp ${DESTDIR}/bl30_zero.bin ${DESTDIR}/bl301.bin ${DESTDIR}/bl301_zero.bin ${DESTDIR}/bl30_new.bin bl30
 
     $FIPDIR/blx_fix.sh ${DESTDIR}/bl2.bin ${DESTDIR}/zero_tmp ${DESTDIR}/bl2_zero.bin ${DESTDIR}/acs.bin ${DESTDIR}/bl21_zero.bin ${DESTDIR}/bl2_new.bin bl2
 
+    chmod +x ${FIPDIR}/aml_encrypt_g12a
     ${FIPDIR}/aml_encrypt_g12a --bl30sig --input ${DESTDIR}/bl30_new.bin --output ${DESTDIR}/bl30_new.bin.g12.enc --level v3
     ${FIPDIR}/aml_encrypt_g12a --bl3sig  --input ${DESTDIR}/bl30_new.bin.g12.enc --output ${DESTDIR}/bl30_new.bin.enc --level v3 --type bl30
     ${FIPDIR}/aml_encrypt_g12a --bl3sig  --input ${DESTDIR}/bl31.img --output ${DESTDIR}/bl31.img.enc --level v3 --type bl31
@@ -305,10 +316,12 @@ case $SOC in
     cp $FIPDIR/*.fw $DESTDIR/
     cp $UBOOT/build_$BOARD/u-boot.bin $DESTDIR/bl33.bin
 
+    chmod +x $FIPDIR/blx_fix.sh
     $FIPDIR/blx_fix.sh ${DESTDIR}/bl30.bin ${DESTDIR}/zero_tmp ${DESTDIR}/bl30_zero.bin ${DESTDIR}/bl301.bin ${DESTDIR}/bl301_zero.bin ${DESTDIR}/bl30_new.bin bl30
 
     $FIPDIR/blx_fix.sh ${DESTDIR}/bl2.bin ${DESTDIR}/zero_tmp ${DESTDIR}/bl2_zero.bin ${DESTDIR}/acs.bin ${DESTDIR}/bl21_zero.bin ${DESTDIR}/bl2_new.bin bl2
 
+    chmod +x ${FIPDIR}/aml_encrypt_g12b
     ${FIPDIR}/aml_encrypt_g12b --bl30sig --input ${DESTDIR}/bl30_new.bin --output ${DESTDIR}/bl30_new.bin.g12.enc --level v3
     ${FIPDIR}/aml_encrypt_g12b --bl3sig  --input ${DESTDIR}/bl30_new.bin.g12.enc --output ${DESTDIR}/bl30_new.bin.enc --level v3 --type bl30
     ${FIPDIR}/aml_encrypt_g12b --bl3sig  --input ${DESTDIR}/bl31.img --output ${DESTDIR}/bl31.img.enc --level v3 --type bl31
