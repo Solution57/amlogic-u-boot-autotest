@@ -1,5 +1,5 @@
 variables:
-  IMAGE_TAG: "2021-07-27-01"
+  IMAGE_TAG: "2022-01-07-01"
   BOARDS: "bananapi-m5 beelink-gsking-x beelink-gtking beelink-gtkingpro jethub jethub khadas-vim2 khadas-vim3 khadas-vim3 khadas-vim3 khadas-vim3 khadas-vim3l khadas-vim3l khadas-vim3l khadas-vim3l khadas-vim libretech-ac libretech-cc libretech-cc libretech-s905d-pc libretech-s912-pc nanopi-k2 odroid-c2 odroid-c4 odroid-hc4 odroid-n2 p200 p201 p212 radxa-zero s400 sei510 sei610 u200 wetek-core2"
 
 stages:

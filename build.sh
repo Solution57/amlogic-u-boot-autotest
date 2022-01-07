@@ -22,7 +22,7 @@ fi
 (
     cd $UBOOT
     make O=build_$BOARD ${BOARD}_defconfig > /dev/null
-    make O=build_$BOARD CROSS_COMPILE=$TOOLCHAIN/aarch64-linux-gnu- -j4 > /dev/null
+    make O=build_$BOARD CROSS_COMPILE=$TOOLCHAIN/aarch64-none-linux-gnu- -j4 > /dev/null
 )
 
 case $BOARD in

@@ -31,4 +31,4 @@ RUN git clone https://github.com/superna9999/pyamlboot --depth 1 /opt/pyamlboot
 
 # Download and decompress toolchain
 RUN mkdir -p /opt/toolchain
-RUN wget -qO- https://releases.linaro.org/components/toolchain/binaries/7.5-2019.12/aarch64-linux-gnu/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu.tar.xz  | tar -xJ --strip-components=1 -C /opt/toolchain
+RUN wget -qO- https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-a/10.3-2021.07/binrel/gcc-arm-10.3-2021.07-x86_64-aarch64-none-linux-gnu.tar.xz  | tar -xJ --strip-components=1 -C /opt/toolchain
