@@ -1,6 +1,6 @@
 variables:
   IMAGE_TAG: "2021-07-27-01"
-  BOARDS: "odroid-c2 odroid-c4 odroid-n2 p212 s400 p201 p200 u200 libretech-cc libretech-cc_v2 libretech-ac libretech-s905d-pc libretech-s912-pc khadas-vim khadas-vim2 khadas-vim3 khadas-vim3l nanopi-k2 sei510 sei610 wetek-core2 beelink-gtking beelink-gtkingpro"
+  BOARDS: "bananapi-m5 beelink-gsking-x beelink-gtking beelink-gtkingpro jethub jethub khadas-vim2 khadas-vim3 khadas-vim3 khadas-vim3 khadas-vim3 khadas-vim3l khadas-vim3l khadas-vim3l khadas-vim3l khadas-vim libretech-ac libretech-cc libretech-cc libretech-s905d-pc libretech-s912-pc nanopi-k2 odroid-c2 odroid-c4 odroid-hc4 odroid-n2 p200 p201 p212 radxa-zero s400 sei510 sei610 u200 wetek-core2"
 
 stages:
   - docker
@@ -38,7 +38,7 @@ build:docker:
   before_script:
     - "[ -d results ] || mkdir results"
     - git clone $UBOOT_URL --branch=$UBOOT_BRANCH --depth=1 /tmp/u-boot
-    - git clone https://github.com/superna9999/amlogic-boot-fip -b makefile --depth=1 /tmp/fip
+    - git clone https://github.com/LibreELEC/amlogic-boot-fip --depth=1 /tmp/fip
 
   script:
     - for board in $BOARDS ; do bash build.sh /opt/toolchain/bin /tmp/u-boot $board /tmp/fip ; done

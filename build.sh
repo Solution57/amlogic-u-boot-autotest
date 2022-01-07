@@ -25,9 +25,6 @@ fi
     make O=build_$BOARD CROSS_COMPILE=$TOOLCHAIN/aarch64-linux-gnu- -j4 > /dev/null
 )
 
-# Package with FIP
-DESTDIR=$UBOOT/build_$BOARD/fip
-
 case $BOARD in
 	"odroid-c2")
 	FIPDIR="$FIPDIR/odroid-c2"
@@ -122,9 +119,12 @@ case $BOARD in
     SOC="g12b"
     ;;
     *)
-	echo "Unsupported board"
-	exit 1
+	echo "FIXME: No FIP for $BOARD"
+	exit 0
 esac
+
+# Package with FIP
+DESTDIR=$UBOOT/build_$BOARD/fip
 
 mkdir -p $DESTDIR
 
