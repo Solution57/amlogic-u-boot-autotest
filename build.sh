@@ -129,7 +129,8 @@ DESTDIR=$UBOOT/build_$BOARD/fip
 mkdir -p $DESTDIR
 
 make -C $FIPDIR TMP=${DESTDIR} O=${DESTDIR} BL33=$UBOOT/build_$BOARD/u-boot.bin
+echo "BUILD COMPLETED!!!"
 
 ls ${DESTDIR}/
-
+cp -a /u-boot//build_$BOARD/ /out/
 exit 0

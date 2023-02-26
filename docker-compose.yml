@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  amlogic_builder:
+    image: s420
+    build:
+      context: .
+    volumes:
+      - ./u-boot:/u-boot
+      - ./fip:/fip
+      - ./out:/out
+    command: /bin/bash -c "/opt/build.sh /opt/toolchain/bin /u-boot/ s400 /fip"
